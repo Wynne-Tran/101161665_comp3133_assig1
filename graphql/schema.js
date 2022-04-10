@@ -2,6 +2,7 @@ const { buildSchema } = require('graphql');
 
 module.exports = buildSchema(`
   type Profile {
+    _id: String
     username: String, 
     firstname: String, 
     lastname: String, 
@@ -11,6 +12,7 @@ module.exports = buildSchema(`
   }
 
   type Listing {
+    _id: String,
     listing_id: String,
     listing_title: String,
     description: String,
@@ -23,6 +25,7 @@ module.exports = buildSchema(`
   }
 
   type Booking {
+    _id: String
     listing_id: String,
     booking_id: String,
     booking_date: String,
@@ -101,8 +104,8 @@ module.exports = buildSchema(`
     updateProfile(id: ID!, profileInput: ProfileInputData): Profile!
     deleteProfile(id: ID!): Profile!
     login(userInput: ProfileUserInput): Profile!
-    createListing(id: ID!, listingInput: ListingInput): Listing!
-    createBooking(id: ID!, listing_id: ID!, bookingInput: BookingInput): Booking!
+    createListing(id: String, listingInput: ListingInput): Listing!
+    createBooking(id: String, _id: String, bookingInput: BookingInput): Booking!
   }
 
   schema {

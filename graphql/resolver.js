@@ -86,10 +86,12 @@ module.exports = {
 
   // Listing Schema
   createListing: async function ({ id, listingInput }) {
+    console.log(listingInput)
     const profile = await Profile.findById(id);
-    if (!profile || profile.type != "admin") {
-      throw new Error('Profile incorrect!');
-    }
+    console.log(id)
+    // if (!profile || profile.type != "admin") {
+    //   throw new Error('Profile incorrect!');
+    // }
     const listing = new Listing({
       listing_id: listingInput.listing_id,
       listing_title: listingInput.listing_title,
@@ -145,12 +147,14 @@ module.exports = {
 
   //Booking Schema
 
-  createBooking: async function ({ id, listing_id, bookingInput }) {
+  createBooking: async function ({ id, _id, bookingInput }) {
+    console.log(id)
+    console.log(_id)
     const profile = await Profile.findById(id);
     if (!profile || profile.type != "customer") {
       throw new Error('Profile incorrect!');
     }
-    const listing = await Listing.findById(listing_id);
+    const listing = await Listing.findById(_id);
     if (!listing) {
       throw new Error('Listing incorrect!');
     }

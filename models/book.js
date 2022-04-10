@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
     listing_id: {
         type: String,
-        required: true,   
+        //required: true,   
     },
     booking_id: {
         type: String,
-        required: true
+        //required: true
     },
     booking_date: {
         type: Date,
@@ -15,15 +15,15 @@ const bookSchema = new Schema({
     },
     booking_start: {
         type: String,
-        required: true
+        //required: true
     },
     booking_end: {
         type: String,
-        required: true,
+        //required: true,
     },
     username: {
         type: String,
-        required: true,
+        //required: true,
     },
 })
 
